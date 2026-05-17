@@ -1,0 +1,504 @@
+/* =========================
+   FUENTE
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* =========================
+   VARIABLES
+========================= */
+:root {
+    --color-principal: #1C8A95;
+    --color-secundario: rgba(255,255,255,0.9);
+    --color-gris: rgba(255,255,255,0.2);
+}
+
+/* =========================
+   RESET + CONTROL OVERFLOW
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+/* =========================
+   BASE
+========================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #1C8A95, #0f4f55);
+    color: var(--color-secundario);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    height: 130px;
+    background: white;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 80px;
+}
+
+header h1 {
+    color: var(--color-principal);
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* =========================
+   APP
+========================= */
+#app {
+    margin-top: 130px;
+    flex: 1;
+}
+
+/* =========================
+   VISTAS
+========================= */
+.vista {
+    display: none;
+    padding: 40px 20px;
+}
+
+.vista.activa {
+    display: block;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.contenido-vista {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* =========================
+   TEXTO
+========================= */
+.texto {
+    flex: 1;
+    position: relative;
+    left: 20px;
+}
+
+.texto h2 {
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+}
+
+.texto p {
+    font-size: 1rem;
+}
+
+/* =========================
+   LOGO SECCIÓN (ARREGLADO)
+========================= */
+.logo-seccion {
+    position: relative;
+    left: 90px;
+    width: 100%;
+    max-width: 350px;
+    opacity: 1;
+    border-radius: 6px;
+
+}
+
+
+/* =========================
+   CARRUSEL
+========================= */
+.carousel-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.slide img {
+    max-width: 450px;
+    border-radius: 10px;
+}
+
+/* =========================
+   FLECHAS
+========================= */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* =========================
+   CONTACTO PREMIUM
+========================= */
+
+.contacto-wrapper {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+/* TÍTULOS */
+.contacto-wrapper h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.contacto-wrapper p {
+    margin-bottom: 30px;
+    opacity: 0.85;
+}
+
+/* FORMULARIO */
+.form-container.grande {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+
+    padding: 30px;
+    border-radius: 16px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+
+    margin-bottom: 30px;
+}
+
+/* INPUTS */
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 14px;
+
+    border-radius: 8px;
+    border: none;
+
+    margin-bottom: 12px;
+
+    background: rgba(255,255,255,0.95);
+    font-size: 0.95rem;
+}
+
+/* BOTÓN */
+.form-container button {
+    width: 100%;
+    padding: 14px;
+
+    background: #1C8A95;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-weight: bold;
+    font-size: 1rem;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-container button:hover {
+    background: #146d75;
+    transform: scale(1.03);
+}
+
+/* INFO EMPRESA */
+.info-empresa {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+
+    border-radius: 16px;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* BLOQUES */
+.bloque {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ICONOS */
+.bloque i {
+    font-size: 22px;
+    color: #fff;
+}
+
+/* TEXTO */
+.bloque span {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    display: block;
+}
+
+.bloque a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.bloque a:hover {
+    text-decoration: underline;
+}
+
+/* DIVISOR */
+.divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+}
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+/* CONTENEDOR ICONOS */
+.redes-footer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* ICONOS */
+.redes-footer a {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.15); /* 🔥 visible pero integrado */
+    color: white;
+
+    font-size: 18px;
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER GENERAL */
+.redes-footer a:hover {
+    transform: scale(1.1);
+}
+
+/* COLORES REDES */
+.redes-footer a:nth-child(1):hover {
+    background: #1877f2; /* Facebook */
+}
+
+.redes-footer a:nth-child(2):hover {
+    background: #E1306C; /* Instagram */
+}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    .contenido-vista {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-seccion {
+        position: static;
+        width: 120px;
+        margin: 0 auto 10px;
+        opacity: 0.95;
+    }
+
+    .info-empresa {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+}
+@media (max-width: 768px) {
+
+    /* =========================
+       HEADER
+    ========================= */
+    header {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .header-container {
+        width: 100%;
+        align-items: center;
+    }
+
+    .logo {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .logo img {
+        height: 50px; /* 🔥 antes 80px */
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    /* =========================
+       MENÚ
+    ========================= */
+    nav ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 🔥 2 filas limpias */
+        gap: 6px;
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        padding: 4px;
+    }
+
+    /* =========================
+       APP
+    ========================= */
+    #app {
+        margin-top: 110px;
+    }
+
+    /* =========================
+       VISTAS
+    ========================= */
+    .vista {
+        padding: 40px 15px;
+    }
+
+    /* =========================
+       LAYOUT
+    ========================= */
+    .contenido-vista {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    /* =========================
+       TEXTO
+    ========================= */
+    .texto h2 {
+        font-size: 1.8rem;
+    }
+
+    .texto p {
+        font-size: 0.95rem;
+    }
+
+    /* =========================
+       LOGO SECCIÓN (ARREGLADO)
+    ========================= */
+    .logo-seccion {
+        position: static; /* 🔥 evita overflow */
+        width: 120px;
+        margin: 0 auto 10px;
+        opacity: 0.95;
+    }
+
+    /* =========================
+       CARRUSEL
+    ========================= */
+    .slide img {
+        max-width: 90%;
+    }
+
+    /* =========================
+       CONTACTO
+    ========================= */
+    .form-container.grande {
+        padding: 20px;
+    }
+
+    .info-empresa {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    footer {
+        padding: 15px 10px;
+    }
+
+}
