@@ -13,7 +13,7 @@
 }
 
 /* =========================
-   RESET + CONTROL OVERFLOW
+   RESET
 ========================= */
 * {
     margin: 0;
@@ -35,6 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 130px;
 }
 
 /* =========================
@@ -72,80 +73,14 @@ header {
 header h1 {
     color: var(--color-principal);
 }
+
 /* =========================
-   HAMBURGUESA (OCULTO EN PC)
+   MENÚ
 ========================= */
 .menu-toggle {
     display: none;
 }
 
-/* =========================
-   MÓVIL
-========================= */
-@media (max-width: 768px) {
-
-    header {
-        padding: 10px 0;
-        position: relative;
-    }
-
-    .header-container {
-        width: 100%;
-        align-items: center;
-    }
-
-    /* BOTÓN */
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 15px;
-
-        font-size: 22px;
-        cursor: pointer;
-        color: #333;
-    }
-
-    /* MENÚ OCULTO */
-    nav ul {
-        display: none;
-        flex-direction: column;
-
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-
-        background: white;
-        padding: 10px 0;
-
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    /* MENÚ ACTIVO */
-    nav ul.activo {
-        display: flex;
-    }
-
-    nav li {
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    nav a {
-        font-size: 0.95rem;
-    }
-
-    /* 🔥 IMPORTANTE */
-    #app {
-        margin-top: 90px;
-    }
-
-}
-
-/* =========================
-   MENÚ
-========================= */
 nav ul {
     display: flex;
     gap: 25px;
@@ -154,17 +89,13 @@ nav ul {
 
 nav a {
     position: relative;
-    display: inline-block;
-
     color: #333;
     text-decoration: none;
     font-weight: bold;
-
     padding: 6px 8px;
     transition: color 0.3s ease;
 }
 
-/* HOVER DESKTOP */
 nav a:hover {
     color: var(--color-principal);
 }
@@ -174,12 +105,9 @@ nav a::after {
     position: absolute;
     left: 50%;
     bottom: -4px;
-
     width: 0%;
     height: 2px;
-
     background: var(--color-principal);
-
     transform: translateX(-50%);
     transition: width 0.3s ease;
 }
@@ -187,11 +115,11 @@ nav a::after {
 nav a:hover::after {
     width: 70%;
 }
+
 /* =========================
    APP
 ========================= */
 #app {
-    margin-top: 130px;
     flex: 1;
 }
 
@@ -208,15 +136,40 @@ nav a:hover::after {
 }
 
 /* =========================
-   LAYOUT
+   LAYOUT GENERAL
 ========================= */
 .contenido-vista {
     display: flex;
     align-items: center;
-    justify-content: center; /* 🔥 clave */
-    gap: 60px; /* ajusta espacio */
+    justify-content: center;
+    gap: 60px;
     max-width: 1600px;
     margin: auto;
+}
+
+/* =========================
+   INICIO (MEJORADO)
+========================= */
+#inicio .contenido-vista {
+    justify-content: center;
+    gap: 80px;
+    max-width: 1200px;
+}
+
+#inicio .texto {
+    max-width: 550px;
+    align-items: flex-start;
+    text-align: left;
+}
+
+#inicio .video-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+/* 🔥 eliminar flechas solo en inicio */
+#inicio .arrow {
+    display: none;
 }
 
 /* =========================
@@ -237,10 +190,12 @@ nav a:hover::after {
     font-size: 2.3rem;
     margin-bottom: 15px;
 }
+
 .texto p:first-of-type {
     font-size: 1.1rem;
     font-weight: 500;
 }
+
 .texto p {
     line-height: 1.7;
     margin-bottom: 12px;
@@ -250,15 +205,30 @@ nav a:hover::after {
    LOGO SECCIÓN
 ========================= */
 .logo-seccion {
-    position: relative;
     width: 100%;
     max-width: 300px;
-    opacity: 1;
     border-radius: 6px;
-    display: block;
     margin: 0 auto 20px auto;
 }
 
+/* =========================
+   VIDEO
+========================= */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    padding-bottom: 56.25%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
 
 /* =========================
    CARRUSEL
@@ -282,6 +252,7 @@ nav a:hover::after {
 }
 
 .slide img {
+    width: 100%;
     max-width: 450px;
     border-radius: 10px;
 }
@@ -292,7 +263,7 @@ nav a:hover::after {
 .arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-20%);
+    transform: translateY(-50%);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -305,16 +276,14 @@ nav a:hover::after {
 .next { right: 20px; }
 
 /* =========================
-   CONTACTO PREMIUM
+   CONTACTO
 ========================= */
-
 .contacto-wrapper {
     max-width: 600px;
     margin: auto;
     text-align: center;
 }
 
-/* TÍTULOS */
 .contacto-wrapper h2 {
     font-size: 2rem;
     margin-bottom: 10px;
@@ -325,108 +294,110 @@ nav a:hover::after {
     opacity: 0.85;
 }
 
-/* FORMULARIO */
 .form-container.grande {
     background: rgba(255,255,255,0.12);
     backdrop-filter: blur(15px);
-
     padding: 30px;
     border-radius: 16px;
-
     box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-
     margin-bottom: 30px;
 }
 
-/* INPUTS */
 .form-container input,
 .form-container textarea {
     width: 100%;
     padding: 14px;
-
     border-radius: 8px;
     border: none;
-
     margin-bottom: 12px;
-
     background: rgba(255,255,255,0.95);
-    font-size: 0.95rem;
 }
 
-/* BOTÓN */
 .form-container button {
     width: 100%;
     padding: 14px;
-
-    background: #1C8A95;
+    background: var(--color-principal);
     color: white;
-
     border: none;
     border-radius: 8px;
-
     font-weight: bold;
-    font-size: 1rem;
-
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 .form-container button:hover {
     background: #146d75;
-    transform: scale(1.03);
 }
 
 /* INFO EMPRESA */
 .info-empresa {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
 
-    border-radius: 16px;
-    padding: 20px;
+    border-radius: 20px;
+    padding: 25px 30px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition: all 0.3s ease;
+}
+
+.info-empresa:hover {
+    transform: translateY(-3px);
 }
 
 /* BLOQUES */
 .bloque {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
 /* ICONOS */
 .bloque i {
-    font-size: 22px;
-    color: #fff;
+    font-size: 18px;
+    color: white;
+
+    background: rgba(255,255,255,0.15);
+    padding: 10px;
+    border-radius: 50%;
 }
 
 /* TEXTO */
 .bloque span {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     opacity: 0.7;
     display: block;
 }
 
 .bloque a {
     color: white;
-    font-weight: bold;
+    font-weight: 600;
     text-decoration: none;
 }
 
 .bloque a:hover {
     text-decoration: underline;
+    opacity: 0.9;
 }
 
-/* DIVISOR */
+/* DIVISOR MEJORADO */
 .divider {
     width: 1px;
-    height: 40px;
-    background: rgba(255,255,255,0.2);
+    height: 50px;
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(255,255,255,0.5),
+            transparent
+    );
 }
+
 /* =========================
    LOGIN
 ========================= */
@@ -439,10 +410,8 @@ nav a:hover::after {
 .login-box {
     margin-top: 20px;
     padding: 25px;
-
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
-
     border-radius: 15px;
 }
 
@@ -450,7 +419,6 @@ nav a:hover::after {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-
     border: none;
     border-radius: 8px;
 }
@@ -458,20 +426,12 @@ nav a:hover::after {
 .login-box button {
     width: 100%;
     padding: 10px;
-
     background: var(--color-principal);
     color: white;
-
     border: none;
     border-radius: 8px;
-    cursor: pointer;
-
-    transition: 0.3s;
 }
 
-.login-box button:hover {
-    background: #146b73;
-}
 /* =========================
    FOOTER
 ========================= */
@@ -481,7 +441,6 @@ footer {
     color: white;
 }
 
-/* CONTENEDOR ICONOS */
 .redes-footer {
     display: flex;
     justify-content: center;
@@ -489,47 +448,42 @@ footer {
     margin-top: 10px;
 }
 
-/* ICONOS */
 .redes-footer a {
     width: 42px;
     height: 42px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 50%;
-
-    background: rgba(255,255,255,0.15); /* 🔥 visible pero integrado */
+    background: rgba(255,255,255,0.15);
     color: white;
-
-    font-size: 18px;
-
     transition: all 0.3s ease;
 }
 
-/* HOVER GENERAL */
 .redes-footer a:hover {
     transform: scale(1.1);
 }
 
-/* COLORES REDES */
 .redes-footer a:nth-child(1):hover {
-    background: #1877f2; /* Facebook */
+    background: #1877f2;
 }
 
 .redes-footer a:nth-child(2):hover {
-    background: #E1306C; /* Instagram */
+    background: #E1306C;
 }
+
 /* =========================
    RESPONSIVE
 ========================= */
-/* =========================
-   RESPONSIVE (MÓVIL)
-========================= */
 @media (max-width: 768px) {
 
+    body {
+        padding-top: 90px;
+    }
+
     header {
+        height: auto;
+        padding: 10px 0;
         position: relative;
     }
 
@@ -541,7 +495,6 @@ footer {
         font-size: 1rem;
     }
 
-    /* 🔥 BOTÓN HAMBURGUESA */
     .menu-toggle {
         display: block;
         position: absolute;
@@ -552,7 +505,6 @@ footer {
         color: #333;
     }
 
-    /* 🔥 MENÚ OCULTO */
     nav ul {
         display: none;
         flex-direction: column;
@@ -572,10 +524,19 @@ footer {
         text-align: center;
     }
 
-    /* LAYOUT */
     .contenido-vista {
         flex-direction: column;
         gap: 20px;
+    }
+
+    #inicio .contenido-vista {
+        justify-content: center;
+        gap: 30px;
+    }
+
+    #inicio .texto {
+        align-items: center;
+        text-align: center;
     }
 
     .texto {
@@ -586,12 +547,11 @@ footer {
         font-size: 1.6rem;
     }
 
+    .video-container {
+        max-width: 100%;
+    }
+
     .slide img {
         max-width: 90%;
     }
-
-    #app {
-        margin-top: 90px;
-    }
-
 }
