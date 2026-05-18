@@ -84,5 +84,9 @@ enlaces.forEach(enlace => {
             nuevaVista._carousel?.reset();
         }
     });
+    document.querySelector("#login form").addEventListener("submit", e => {
+        e.preventDefault();
+        alert("Funcionalidad en desarrollo");
+    });
 
 });

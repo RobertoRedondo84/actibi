@@ -74,6 +74,9 @@ header h1 {
     color: var(--color-principal);
 }
 
+/* =========================
+   MENÚ
+========================= */
 nav ul {
     display: flex;
     gap: 25px;
@@ -81,11 +84,40 @@ nav ul {
 }
 
 nav a {
+    position: relative;
+    display: inline-block;
+
     color: #333;
     text-decoration: none;
     font-weight: bold;
+
+    padding: 6px 8px;
+    transition: color 0.3s ease;
 }
 
+/* HOVER DESKTOP */
+nav a:hover {
+    color: var(--color-principal);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+
+    width: 0%;
+    height: 2px;
+
+    background: var(--color-principal);
+
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 70%;
+}
 /* =========================
    APP
 ========================= */
@@ -112,39 +144,50 @@ nav a {
 .contenido-vista {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 40px;
+    justify-content: center; /* 🔥 clave */
+    gap: 60px; /* ajusta espacio */
+    max-width: 1600px;
+    margin: auto;
 }
 
 /* =========================
    TEXTO
 ========================= */
 .texto {
-    flex: 1;
-    position: relative;
-    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
 }
 
 .texto h2 {
     font-size: 2.3rem;
     margin-bottom: 15px;
 }
-
+.texto p:first-of-type {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
 .texto p {
-    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
 }
 
 /* =========================
-   LOGO SECCIÓN (ARREGLADO)
+   LOGO SECCIÓN
 ========================= */
 .logo-seccion {
     position: relative;
-    left: 90px;
     width: 100%;
-    max-width: 350px;
+    max-width: 300px;
     opacity: 1;
     border-radius: 6px;
-
+    display: block;
+    margin: 0 auto 20px auto;
 }
 
 
@@ -152,6 +195,7 @@ nav a {
    CARRUSEL
 ========================= */
 .carousel-container {
+    max-width: 480px;
     flex: 1;
     overflow: hidden;
     position: relative;
@@ -179,17 +223,17 @@ nav a {
 .arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    transform: translateY(-20%);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: rgba(0,0,0,0.4);
-    color: white;
+    background: rgba(255, 255, 255, 0.4);
+    color: #131313;
     cursor: pointer;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev { left: 20px; }
+.next { right: 20px; }
 
 /* =========================
    CONTACTO PREMIUM
@@ -315,6 +359,51 @@ nav a {
     background: rgba(255,255,255,0.2);
 }
 /* =========================
+   LOGIN
+========================= */
+.login-wrapper {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.login-box {
+    margin-top: 20px;
+    padding: 25px;
+
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+
+    border-radius: 15px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    border: none;
+    border-radius: 8px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+
+    background: var(--color-principal);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background: #146b73;
+}
+/* =========================
    FOOTER
 ========================= */
 footer {
@@ -374,6 +463,7 @@ footer {
     }
 
     .logo-seccion {
+
         position: static;
         width: 120px;
         margin: 0 auto 10px;
@@ -393,11 +483,11 @@ footer {
     ========================= */
     header {
         height: auto;
-        padding: 10px 0;
+        padding: 05px 0;
     }
 
     .header-container {
-        width: 100%;
+        width: 90%;
         align-items: center;
     }
 
@@ -407,11 +497,11 @@ footer {
     }
 
     .logo img {
-        height: 50px; /* 🔥 antes 80px */
+        height: 40px; /* 🔥 antes 80px */
     }
 
     header h1 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     /* =========================
@@ -419,17 +509,52 @@ footer {
     ========================= */
     nav ul {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 🔥 2 filas limpias */
+        grid-template-columns: repeat(3, 1fr);
         gap: 6px;
         padding: 5px 10px;
         text-align: center;
     }
 
+    /* ENLACES */
     nav a {
+        display: inline-block;
+        position: relative;
+
         font-size: 0.8rem;
-        padding: 4px;
+        padding: 6px 4px;
+
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+
+        transition: color 0.3s ease;
     }
 
+    /* EFECTO HOVER (SOLO DESKTOP REAL) */
+    @media (hover: hover) {
+        nav a:hover {
+            color: var(--color-principal);
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -3px;
+
+            width: 0%;
+            height: 2px;
+
+            background: var(--color-principal);
+
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 70%;
+        }
+    }
     /* =========================
        APP
     ========================= */
@@ -458,10 +583,11 @@ footer {
        TEXTO
     ========================= */
     .texto h2 {
-        font-size: 1.8rem;
-    }
+        max-width: 90%;
+        margin: 0 auto;    }
 
     .texto p {
+        text-align: center;
         font-size: 0.95rem;
     }
 
