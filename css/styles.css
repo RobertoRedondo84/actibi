@@ -19,7 +19,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    max-width: 100%;
 }
 
 html, body {
@@ -72,6 +71,76 @@ header {
 
 header h1 {
     color: var(--color-principal);
+}
+/* =========================
+   HAMBURGUESA (OCULTO EN PC)
+========================= */
+.menu-toggle {
+    display: none;
+}
+
+/* =========================
+   MÓVIL
+========================= */
+@media (max-width: 768px) {
+
+    header {
+        padding: 10px 0;
+        position: relative;
+    }
+
+    .header-container {
+        width: 100%;
+        align-items: center;
+    }
+
+    /* BOTÓN */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+
+        font-size: 22px;
+        cursor: pointer;
+        color: #333;
+    }
+
+    /* MENÚ OCULTO */
+    nav ul {
+        display: none;
+        flex-direction: column;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        background: white;
+        padding: 10px 0;
+
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* MENÚ ACTIVO */
+    nav ul.activo {
+        display: flex;
+    }
+
+    nav li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav a {
+        font-size: 0.95rem;
+    }
+
+    /* 🔥 IMPORTANTE */
+    #app {
+        margin-top: 90px;
+    }
+
 }
 
 /* =========================
@@ -455,176 +524,74 @@ footer {
 /* =========================
    RESPONSIVE
 ========================= */
+/* =========================
+   RESPONSIVE (MÓVIL)
+========================= */
 @media (max-width: 768px) {
 
-    .contenido-vista {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .logo-seccion {
-
-        position: static;
-        width: 120px;
-        margin: 0 auto 10px;
-        opacity: 0.95;
-    }
-
-    .info-empresa {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-}
-@media (max-width: 768px) {
-
-    /* =========================
-       HEADER
-    ========================= */
     header {
-        height: auto;
-        padding: 05px 0;
-    }
-
-    .header-container {
-        width: 90%;
-        align-items: center;
-    }
-
-    .logo {
-        justify-content: center;
-        gap: 8px;
+        position: relative;
     }
 
     .logo img {
-        height: 40px; /* 🔥 antes 80px */
+        height: 40px;
     }
 
     header h1 {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
-    /* =========================
-       MENÚ
-    ========================= */
+    /* 🔥 BOTÓN HAMBURGUESA */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        font-size: 22px;
+        cursor: pointer;
+        color: #333;
+    }
+
+    /* 🔥 MENÚ OCULTO */
     nav ul {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-        padding: 5px 10px;
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+    }
+
+    nav ul.activo {
+        display: flex;
+    }
+
+    nav li {
+        padding: 12px;
         text-align: center;
     }
 
-    /* ENLACES */
-    nav a {
-        display: inline-block;
-        position: relative;
-
-        font-size: 0.8rem;
-        padding: 6px 4px;
-
-        color: #333;
-        text-decoration: none;
-        font-weight: bold;
-
-        transition: color 0.3s ease;
-    }
-
-    /* EFECTO HOVER (SOLO DESKTOP REAL) */
-    @media (hover: hover) {
-        nav a:hover {
-            color: var(--color-principal);
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: -3px;
-
-            width: 0%;
-            height: 2px;
-
-            background: var(--color-principal);
-
-            transform: translateX(-50%);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 70%;
-        }
-    }
-    /* =========================
-       APP
-    ========================= */
-    #app {
-        margin-top: 110px;
-    }
-
-    /* =========================
-       VISTAS
-    ========================= */
-    .vista {
-        padding: 40px 15px;
-    }
-
-    /* =========================
-       LAYOUT
-    ========================= */
+    /* LAYOUT */
     .contenido-vista {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 25px;
+        gap: 20px;
     }
 
-    /* =========================
-       TEXTO
-    ========================= */
+    .texto {
+        max-width: 95%;
+    }
+
     .texto h2 {
-        max-width: 90%;
-        margin: 0 auto;    }
-
-    .texto p {
-        text-align: center;
-        font-size: 0.95rem;
+        font-size: 1.6rem;
     }
 
-    /* =========================
-       LOGO SECCIÓN (ARREGLADO)
-    ========================= */
-    .logo-seccion {
-        position: static; /* 🔥 evita overflow */
-        width: 120px;
-        margin: 0 auto 10px;
-        opacity: 0.95;
-    }
-
-    /* =========================
-       CARRUSEL
-    ========================= */
     .slide img {
         max-width: 90%;
     }
 
-    /* =========================
-       CONTACTO
-    ========================= */
-    .form-container.grande {
-        padding: 20px;
-    }
-
-    .info-empresa {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-    footer {
-        padding: 15px 10px;
+    #app {
+        margin-top: 90px;
     }
 
 }

@@ -28,11 +28,9 @@ document.querySelectorAll(".vista").forEach(vista => {
         update();
     }
 
-    // BOTONES
     nextBtn?.addEventListener("click", next);
     prevBtn?.addEventListener("click", prev);
 
-    // SWIPE
     let startX = 0;
 
     container.addEventListener("touchstart", e => {
@@ -46,7 +44,6 @@ document.querySelectorAll(".vista").forEach(vista => {
         if (diff < -50) prev();
     });
 
-    // RESET
     vista._carousel = {
         reset: () => {
             index = 0;
@@ -71,22 +68,45 @@ enlaces.forEach(enlace => {
 
         const idDestino = enlace.getAttribute("href");
 
-        // Quitar activa a todas
         vistas.forEach(v => v.classList.remove("activa"));
 
-        // Activar la correcta
         const nuevaVista = document.querySelector(idDestino);
 
         if (nuevaVista) {
             nuevaVista.classList.add("activa");
-
-            // Reset carrusel
             nuevaVista._carousel?.reset();
         }
-    });
-    document.querySelector("#login form").addEventListener("submit", e => {
-        e.preventDefault();
-        alert("Funcionalidad en desarrollo");
+
+        // 🔥 cerrar menú móvil
+        menu.classList.remove("activo");
     });
 
 });
+
+
+// =========================
+// LOGIN (FAKE)
+// =========================
+
+const loginForm = document.querySelector("#login form");
+
+if (loginForm) {
+    loginForm.addEventListener("submit", e => {
+        e.preventDefault();
+        alert("Funcionalidad en desarrollo");
+    });
+}
+
+
+// =========================
+// MENÚ HAMBURGUESA
+// =========================
+
+const toggle = document.querySelector(".menu-toggle");
+const menu = document.querySelector("nav ul");
+
+if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("activo");
+    });
+}
