@@ -478,13 +478,17 @@ footer {
 @media (max-width: 768px) {
 
     body {
-        padding-top: 90px;
+        padding-top: 40px;
     }
 
     header {
         height: auto;
         padding: 10px 0;
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
     }
 
     .logo img {
@@ -513,6 +517,9 @@ footer {
         left: 0;
         width: 100%;
         background: white;
+        gap: 0;
+        padding: 8px 0;
+        opacity: 0.95;
     }
 
     nav ul.activo {
@@ -520,7 +527,7 @@ footer {
     }
 
     nav li {
-        padding: 12px;
+        padding: 6px;
         text-align: center;
     }
 
